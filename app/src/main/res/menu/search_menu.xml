@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="always"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        app:showAsAction="always"
+        android:title="Filter"/>
+
+    <item
+        android:id="@+id/clear_filter"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_clear_all_24"
+        android:title="CLear Filter"
+        />
+    <item
+        android:id="@+id/library"
+        android:icon="@drawable/ic_baseline_local_library_24"
+        app:showAsAction="always"
+        android:title="Search"/>
+
+
+</menu>

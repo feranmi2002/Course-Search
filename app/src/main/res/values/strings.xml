@@ -1,0 +1,47 @@
+<resources>
+    <string-array name="category">
+        <item>Development</item>
+        <item>Business</item>
+        <item>Finance and Accounting</item>
+        <item>IT and Software</item>
+        <item>Office Productivity</item>
+        <item>Personal Development</item>
+        <item>Design</item>
+        <item>Marketing</item>
+        <item>Lifestyle</item>
+        <item>Photography and Video</item>
+        <item>Health and Fitness</item>
+        <item>Music</item>
+        <item>Teaching and Academics</item>
+    </string-array>
+
+    <string-array name="ordering">
+        <item>Relevance</item>
+        <item>Most-Reviewed</item>
+        <item>Highest-Rated</item>
+        <item>Newest</item>
+        <item>Price-low-to-high</item>
+        <item>Price-high-to-low</item>
+    </string-array>
+
+    <string-array name="duration">
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+        <item>Extra Long</item>
+    </string-array>
+    
+    <string-array name="price">
+        <item>Free</item>
+        <item>Paid</item>
+    </string-array>
+    <string-array name="level">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Expert</item>
+        <item>All</item>
+    </string-array>
+    <string name="app_name">Course Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

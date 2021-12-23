@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="The Complete Android Oreo Developer Course - Build 23" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/authors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Rob Percival, Nick Walter, Codestars, Denis PAnjuta, Tutorial man" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/authors"
+        tools:text="#19 000" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        tools:text="Learn from the best lectures in town about android development in 2022 and also learn android 12" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/see_reviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See reviews"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/link"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_to_library"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/add_to_library"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to library"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/see_reviews"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Course"
+        android:textColor="@color/teal_200"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:autoLink="web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/see_reviews"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+</androidx.constraintlayout.widget.ConstraintLayout>
