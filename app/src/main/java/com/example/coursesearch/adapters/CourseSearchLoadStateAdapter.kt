@@ -1,4 +1,4 @@
-package com.example.coursesearch
+package com.example.coursesearch.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

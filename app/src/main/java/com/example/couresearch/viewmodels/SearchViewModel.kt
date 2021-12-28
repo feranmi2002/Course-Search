@@ -1,15 +1,18 @@
 package com.example.couresearch.viewmodels
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
+import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
-import com.example.coursesearch.CourseDao
-import com.example.coursesearch.CourseReviewPagingSource
-import com.example.coursesearch.CourseSearchPagingSource
+import com.example.coursesearch.data.CourseReviewPagingSource
+import com.example.coursesearch.data.CourseSearchPagingSource
 import com.example.coursesearch.models.Course
 import com.example.coursesearch.retrofit.ApiHelper
+import com.example.coursesearch.room.CourseDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -28,28 +31,39 @@ class SearchViewModel(val apiHelper: ApiHelper) : ViewModel() {
         reviews(it).cachedIn(viewModelScope)
     }
 
-    fun insertCourse(course: Course, database: CourseDao){
+    fun insertCourse(course: Course, database: CourseDao) {
         viewModelScope.launch(Dispatchers.IO) {
             database.insertAll(course)
         }
 
     }
 
-
-//    var result:MutableLiveData<Resource<CourseWrapper>> = MutableLiveData()
-
     val result = query.switchMap {
-        val hashMap = HashMap<String, String?>()
-        hashMap.put("search", query.value)
-        hashMap.put("category", category)
-        hashMap.put("price", price)
-        hashMap.put("instructional_level", instructional_level)
-        hashMap.put("duration", duration)
-        hashMap.put("ordering", ordering)
-        search(hashMap).cachedIn(viewModelScope)
+        search(query(it)).cachedIn(viewModelScope)
     }
 
-    private fun reviews(course_id:Int) = Pager(
+    private fun query(query: String): HashMap<String, String> {
+        val hashMap = HashMap<String, String>()
+        hashMap["search"] = query
+        if (category!=null) {
+            hashMap["category"] = category!!
+        }
+        if (price!=null) {
+            hashMap["price"] = price!!
+        }
+        if (instructional_level!=null) {
+            hashMap["instructional_level"] = instructional_level!!
+        }
+        if (duration!=null) {
+            hashMap["duration"] = duration!!
+        }
+        if (ordering!=null) {
+            hashMap["ordering"] = ordering!!
+        }
+        return hashMap
+    }
+
+    private fun reviews(course_id: Int) = Pager(
         config = PagingConfig(
             pageSize = 10,
             maxSize = 30,
@@ -60,7 +74,7 @@ class SearchViewModel(val apiHelper: ApiHelper) : ViewModel() {
     ).liveData
 
 
-    private fun search(query: HashMap<String, String?>) = Pager(
+    private fun search(query: HashMap<String, String>) = Pager(
         config = PagingConfig(
             pageSize = 10,
             maxSize = 30,

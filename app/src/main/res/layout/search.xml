@@ -7,6 +7,7 @@
     android:padding="8dp"
     tools:context="com.example.coursesearch.fragments.SearchFragment">
 
+
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,6 +33,20 @@
         android:gravity="center"
         android:textColor="@color/design_default_color_secondary_variant"/>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/error"
+        android:text="Error occured while loading results! You can try changing filters, or checking your network connection."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/design_default_color_error"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -41,15 +56,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:visibility="invisible"
         android:text="retry"
+        android:id="@+id/retry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info" />
+        app:layout_constraintTop_toBottomOf="@id/error" />
 
 
 

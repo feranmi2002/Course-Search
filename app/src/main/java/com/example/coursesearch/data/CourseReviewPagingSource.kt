@@ -1,10 +1,8 @@
-package com.example.coursesearch
+package com.example.coursesearch.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.coursesearch.models.Course
 import com.example.coursesearch.models.CourseReview
-import com.example.coursesearch.models.CourseReviewWrapper
 import com.example.coursesearch.retrofit.ApiHelper
 
 class CourseReviewPagingSource(val apiHelper: ApiHelper, val course_id:Int) :
@@ -18,9 +16,9 @@ class CourseReviewPagingSource(val apiHelper: ApiHelper, val course_id:Int) :
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CourseReview> {
         return try {
-            val response = Repository.getCoursesReview(apiHelper,course_id , params.key!!)
+            val response = Repository.getCoursesReview(apiHelper, course_id, params.key!!)
             LoadResult.Page(
-                data = response.reviews,
+                data = response.results,
                 nextKey = params.key?.plus(1),
                 prevKey = if (params.key == 1) {
                     null

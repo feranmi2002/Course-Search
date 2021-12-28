@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:padding="8dp">
 
     <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Oluwaoyehun Faith"
-        android:textSize="13sp"
         android:id="@+id/name"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <androidx.appcompat.widget.AppCompatRatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rating"
-        android:isIndicator="true"
-        style="?attr/ratingBarStyleSmall"
-        app:layout_constraintTop_toBottomOf="@id/name"
-        tools:rating="4"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="This is a very good course."
-        android:textSize="13sp"
-        android:id="@+id/comment"
-        app:layout_constraintTop_toBottomOf="@id/rating"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Oluwaoyehun Faith" />
 
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:rating="4" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        tools:text="This is a very good course." />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

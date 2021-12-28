@@ -14,8 +14,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="customRatingBar"
-        parent="android:style/Widget.Material.RatingBar.Small">
-
-    </style>
 </resources>

@@ -2,7 +2,6 @@ package com.example.couresearch.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.coursesearch.Repository
 import com.example.coursesearch.retrofit.ApiHelper
 
 class CourseSearchViewModelFactory(private val apiHelper: ApiHelper): ViewModelProvider.Factory {

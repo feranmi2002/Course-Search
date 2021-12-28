@@ -1,4 +1,4 @@
-package com.example.coursesearch
+package com.example.coursesearch.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

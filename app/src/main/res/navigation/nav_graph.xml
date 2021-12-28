@@ -2,14 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/searchFragment">
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.coursesearch.fragments.SearchFragment"
-        android:label="search"
-        tools:layout="@layout/search" >
+        android:label="CourseSearch"
+        tools:layout="@layout/search">
         <action
             android:id="@+id/action_searchFragment_to_libraryFragment"
             app:destination="@id/libraryFragment" />
@@ -17,6 +16,6 @@
     <fragment
         android:id="@+id/libraryFragment"
         android:name="com.example.coursesearch.fragments.LibraryFragment"
-        android:label="fragment_library"
+        android:label="Library"
         tools:layout="@layout/fragment_library" />
 </navigation>

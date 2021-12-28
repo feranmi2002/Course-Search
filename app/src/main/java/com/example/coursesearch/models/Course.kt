@@ -1,21 +1,21 @@
 package com.example.coursesearch.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.example.coursesearch.User
+import androidx.room.*
 
-@Entity
+@Entity(tableName = "course", indices = [Index(value = ["id"], unique = true)])
 data class Course(
-    @PrimaryKey val id: Int?,
-    @ColumnInfo(name = "created") val created: String?,
-    @ColumnInfo(name = "description") val description: String?,
-    @ColumnInfo(name = "headline") val headline: String?,
-    @ColumnInfo(name = "price") val price: String?,
+    @PrimaryKey var id: Int?,
+    @ColumnInfo(name = "created") var created: String?,
+    @ColumnInfo(name = "description") var description: String?,
+    @ColumnInfo(name = "headline") var headline: String?,
+    @ColumnInfo(name = "price") var price: String?,
     @ColumnInfo(name = "authors") var authors: String?,
-    @ColumnInfo(name = "title") val title: String?,
-    @ColumnInfo(name = "url") val url: String?,
-  //  @ColumnInfo(name = "visible_instructors") val visible_instructors: List<User>?,
-    @ColumnInfo(name = "image_125_H") val image_125_H: String?,
-    @ColumnInfo(name = "time") var time: String?,
-)
+    @ColumnInfo(name = "title") var title: String?,
+    @ColumnInfo(name = "url") var url: String?,
+    @Ignore val visible_instructors: List<User>?,
+    @ColumnInfo(name = "image_125_H") var image_125_H: String?,
+    @ColumnInfo(name = "time") var time: String?
+){
+    constructor() : this(0, "", "", "",
+    "", "", "", "", mutableListOf<User>(), "", "")
+}

@@ -1,4 +1,4 @@
-package com.example.coursesearch
+package com.example.coursesearch.models
 
 data class User(
     val name: String?,
