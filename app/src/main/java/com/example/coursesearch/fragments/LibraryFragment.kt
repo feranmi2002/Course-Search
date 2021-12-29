@@ -54,7 +54,7 @@ class LibraryFragment : Fragment() {
         viewModel.database = parentActivity.getDatabase()
         adapter = LibraryAdapter(data) { click, course ->
             when {
-                click == "See reviews" -> handleReviews(course.id, course.title!!)
+                click == "See reviews" -> handleReviews(course.id)
                 click == "Library" -> handleLibrary(course)
                 click == "Link" -> handleLink(course.url!!)
                 click == "Description" -> handleSeeDescriptionInFull(course)
@@ -99,8 +99,8 @@ class LibraryFragment : Fragment() {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.udemy.com${url}")))
     }
 
-    private fun handleReviews(id: Int?, courseTitle: String) {
-        val modalBottomSheet = BottomSheet(id)
+    private fun handleReviews(id: Int?) {
+        val modalBottomSheet = BottomSheet.instance(id!!)
         modalBottomSheet.show(requireActivity().supportFragmentManager, BottomSheet.TAG)
     }
 

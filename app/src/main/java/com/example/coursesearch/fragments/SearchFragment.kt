@@ -212,7 +212,8 @@ class SearchFragment : Fragment() {
             adapter.submitData(viewLifecycleOwner.lifecycle, result)
         })
     }
-    private fun setUpRetryButton(){
+
+    private fun setUpRetryButton() {
         binding.retry.setOnClickListener {
             viewModel.query.value = query
         }
@@ -234,6 +235,7 @@ class SearchFragment : Fragment() {
                     loadState.refresh is LoadState.Error && adapter.itemCount == 0
                 binding.retry.isVisible =
                     loadState.refresh is LoadState.Error && adapter.itemCount == 0
+
             }
         }
     }
@@ -242,7 +244,7 @@ class SearchFragment : Fragment() {
     private fun setUpAdapter() {
         adapter = CourseRecyclerAdapter() { click, course ->
             when {
-                click == "See reviews" -> handleReviews(course.id, course.title!!)
+                click == "See reviews" -> handleReviews(course.id)
                 click == "Library" -> handleLibrary(course)
                 click == "Link" -> handleLink(course.url!!)
                 click == "Description" -> handleSeeDescriptionInFull(course)
@@ -258,7 +260,6 @@ class SearchFragment : Fragment() {
         }
     }
 
-
     private fun handleLink(url: String) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.udemy.com${url}")))
     }
@@ -273,8 +274,8 @@ class SearchFragment : Fragment() {
         ).show()
     }
 
-    private fun handleReviews(id: Int?, courseTitle: String) {
-        val modalBottomSheet = BottomSheet(id)
+    private fun handleReviews(id: Int?) {
+        val modalBottomSheet = BottomSheet.instance(id!!)
         modalBottomSheet.show(requireActivity().supportFragmentManager, BottomSheet.TAG)
     }
 

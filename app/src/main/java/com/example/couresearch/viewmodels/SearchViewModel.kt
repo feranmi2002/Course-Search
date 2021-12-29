@@ -17,8 +17,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SearchViewModel(val apiHelper: ApiHelper) : ViewModel() {
-    val courseID: MutableLiveData<Int> = MutableLiveData()
-    private val queryConstraint: MutableLiveData<String> = MutableLiveData()
+    val courseID: MutableLiveData<Int?> = MutableLiveData()
+    private val queryConstraint: MutableLiveData<String> = MutableLiveData(null)
     val query: MutableLiveData<String> = MutableLiveData()
     var category: String? = null
     var price: String? = null
@@ -28,14 +28,13 @@ class SearchViewModel(val apiHelper: ApiHelper) : ViewModel() {
     var ordering: String? = null
 
     val reviews = courseID.switchMap {
-        reviews(it).cachedIn(viewModelScope)
+        reviews(it!!).cachedIn(viewModelScope)
     }
 
     fun insertCourse(course: Course, database: CourseDao) {
         viewModelScope.launch(Dispatchers.IO) {
             database.insertAll(course)
         }
-
     }
 
     val result = query.switchMap {

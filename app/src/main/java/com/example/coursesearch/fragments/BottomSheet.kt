@@ -21,7 +21,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class BottomSheet(val id: Int?) : BottomSheetDialogFragment() {
+class BottomSheet() : BottomSheetDialogFragment() {
     private var _binding: CourseBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: SearchViewModel
@@ -48,7 +48,8 @@ class BottomSheet(val id: Int?) : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = CourseReviewAdapter()
         binding.retry.setOnClickListener {
-            viewModel.courseID.value = id
+            val id = arguments?.getInt("ID")
+            viewModel.courseID.value = viewModel.courseID.value?: id
         }
         binding.recycler.adapter = adapter.withLoadStateHeaderAndFooter(
             header = CourseSearchLoadStateAdapter { adapter.retry() },
@@ -82,5 +83,12 @@ class BottomSheet(val id: Int?) : BottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "ModalBottomSheet"
+        fun instance(id:Int): BottomSheet {
+            val data = Bundle()
+            data.putInt("ID", id)
+            return BottomSheet().apply {
+                arguments = data
+            }
+        }
     }
 }
